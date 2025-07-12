@@ -17,7 +17,7 @@ export const getRoomQuestionRoute: FastifyPluginCallbackZod = (app) => {
             questions: z.array(
               z.object({
                 id: z.string(),
-                question: z.string().nullable(),
+                question: z.string(),
                 answer: z.string().nullable(),
                 createdAt: z.coerce.date()
               })
