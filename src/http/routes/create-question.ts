@@ -18,7 +18,8 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
         }),
         response: {
           201: z.object({
-            questionId: z.string()
+            questionId: z.string(),
+            answer: z.string().nullable()
           })
         }
       }
@@ -70,7 +71,8 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
       }
 
       reply.status(201).send({
-        questionId: createdQuestion.id
+        questionId: createdQuestion.id,
+        answer
       })
     }
   )
